@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteGate } from "@/components/layout/site-gate";
 import { PaymentsProvider } from "@/lib/payments-store";
 import "./globals.css";
 
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="font-sans antialiased">
-        <PaymentsProvider>{children}</PaymentsProvider>
+        <SiteGate>
+          <PaymentsProvider>{children}</PaymentsProvider>
+        </SiteGate>
       </body>
     </html>
   );
