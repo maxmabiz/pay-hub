@@ -1,0 +1,7 @@
+#!/bin/sh
+# 提交到 main 后，把原型推送到 origin，由 Pages 工作流发布。
+branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
+if [ "$branch" != "main" ]; then
+  exit 0
+fi
+git push origin HEAD:main
